@@ -2,7 +2,7 @@ package kz.TELE2;
 
 import kz.TELE2.pages.BaseClass;
 
-public class RegistrationPage extends BaseClass {
+public class RegistrationPage  {
 
 /*
     @Test
