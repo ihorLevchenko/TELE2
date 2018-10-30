@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPage {
     protected WebDriver driver;
 
-    public LoginPage(WebDriver driver){
+    public LoginPage(WebDriver driver) {
         PageFactory.initElements(driver, this); //
         this.driver = driver;
         //В конструкторе класса, необходимо прописать метод PageFactory.initElements(driver, this),
@@ -27,16 +27,33 @@ public class LoginPage {
     @FindBy(xpath = "//*[@id=\"app\"]/div/div[2]/div/div/div[2]/div[1]/form/div[3]/button")
     private WebElement loginButton;
 
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div[2]/div/div/div[2]/div[1]/form/div[4]")
+    private WebElement wrongPassOrNumber;
+
 
     /*методы для работы со элементами*/
-    public void inputPhoneNumberField(String phone){ //метод, для ввода логина
+    public void inputPhoneNumberField(String phone) { //метод, для ввода логина
         phoneNumberField.sendKeys(Keys.HOME, phone);
     }
-    public void inputPasswordField(String password){ //метод для ввода пароль
+
+    public void inputPasswordField(String password) { //метод для ввода пароль
         passwordField.sendKeys(password);
     }
-    public void clickLoginButton(){
+
+    public void clickLoginButton() {
         loginButton.click();
     }
 
+    /*public String getAllertWrongNumberOrPassword(){
+        String wrongPassOrNumber = allert.getText();
+        return allert.getText();
+    }*/
+
+    public boolean isAllertWrongNumberOrPassword() {
+        if (wrongPassOrNumber.isDisplayed()) { //отслеживание ошибки при вводенекорретного
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

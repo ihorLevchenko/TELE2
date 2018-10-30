@@ -1,11 +1,9 @@
 package kz.TELE2;
 
-import kz.TELE2.pages.BaseClass;
 import kz.TELE2.pages.HomePage;
 import kz.TELE2.pages.LoginPage;
 import kz.TELE2.pages.PhoneBoxPage;
 import org.junit.*;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -50,6 +48,16 @@ public class LoginTest {
         String phoneUser = phoneBoxPage.getUserPhoneNumber1();
         Assert.assertEquals("7076421248", phoneUser);
         phoneBoxPage.userLogout();
+    }
+
+    @Test
+    public void loginTestNegative(){
+        homePage.clickPersonalAreaButton();
+        loginPage.inputPhoneNumberField("7076421243");
+        loginPage.inputPasswordField("4439");
+        loginPage.clickLoginButton();
+        loginPage.isAllertWrongNumberOrPassword();
+        homePage.clickLogoButton();
     }
 
     @AfterClass

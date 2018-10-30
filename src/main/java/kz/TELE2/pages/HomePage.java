@@ -16,7 +16,15 @@ public class HomePage {
     @FindBy(xpath = "//*[@id=\"app\"]/div/div[1]/div/div[3]/div/nav/li[4]")
     private WebElement personalAreaButton; //элемент главной страницы, кнопка "Личный кабинет"
 
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div[1]/div/div[3]/div/a/div/img")
+    private WebElement logoButton;
+
+
     public void clickPersonalAreaButton (){ //кнопка "Личный кабинет", на главной странице
         personalAreaButton.click();
+    }
+
+    public void clickLogoButton (){
+        logoButton.click();
     }
 }
