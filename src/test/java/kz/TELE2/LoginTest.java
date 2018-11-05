@@ -1,32 +1,12 @@
 package kz.TELE2;
 
-import kz.TELE2.pages.HomePage;
-import kz.TELE2.pages.LoginPage;
-import kz.TELE2.pages.PhoneBoxPage;
+import kz.TELE2.pages.Base;
 import org.junit.*;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.concurrent.TimeUnit;
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.sym.error;
+import static com.sun.tools.javac.util.Assert.error;
 
-public class LoginTest {
-    public static WebDriver driver;
-    public static HomePage homePage;
-    public static LoginPage loginPage;
-    public static PhoneBoxPage phoneBoxPage;
-
-    //метод setup помеченный аннотацией Junit @BeforeClass.
-    // Он будет выполняться один раз перед запуском кода класса:
-    @BeforeClass
-    public static void setup(){
-        System.setProperty("webdriver.chrome.driver", "/Users/i.levchenko/Desktop/chromedriver");
-        driver = new ChromeDriver();
-        homePage = new HomePage(driver);
-        loginPage = new LoginPage(driver);
-        phoneBoxPage = new PhoneBoxPage(driver);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("https://tele2.kz/");
-    }
+public class LoginTest extends Base {
 
     @Test
     public void loginTestPositive47(){
@@ -51,17 +31,34 @@ public class LoginTest {
     }
 
     @Test
-    public void loginTestNegative(){
+    public void loginTestNegativeWrongPassword() {
         homePage.clickPersonalAreaButton();
         loginPage.inputPhoneNumberField("7076421243");
-        loginPage.inputPasswordField("4439");
+        loginPage.inputPasswordField("333");
         loginPage.clickLoginButton();
-        loginPage.isAllertWrongNumberOrPassword();
+        try {
+            if (loginPage.isAlertWrongNumberOrPassword())
+                System.out.println("TEST - 3 пройден!!!");
+        } catch (Throwable error) {
+            System.out.println("TEST - 3 не пройден!!!" + error.getMessage());
+
+        }
         homePage.clickLogoButton();
     }
 
-    @AfterClass
-    public static void testDown(){
-        driver.quit();
+    @Test
+    public void loginTestNegativeEmptyPasswordField() {
+        homePage.clickPersonalAreaButton();
+        loginPage.inputPhoneNumberField("7076421243");
+        loginPage.inputPasswordField("3333");
+        try {
+            if (loginPage.isDisableButton())
+                System.out.println("TEST - 4 пройден!!!");
+            else {
+                throw new Throwable();
+            }
+        } catch (Throwable error) {
+            System.out.println("TEST - 4 не пройден ");
+        }
     }
 }

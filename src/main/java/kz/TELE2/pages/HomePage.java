@@ -1,12 +1,13 @@
 package kz.TELE2.pages;
 
+import app.AppHomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
-    public WebDriver driver;
+public class HomePage implements AppHomePage {
+    private WebDriver driver;
 
     public HomePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -19,12 +20,13 @@ public class HomePage {
     @FindBy(xpath = "//*[@id=\"app\"]/div/div[1]/div/div[3]/div/a/div/img")
     private WebElement logoButton;
 
-
-    public void clickPersonalAreaButton (){ //кнопка "Личный кабинет", на главной странице
+    @Override
+    public void clickPersonalAreaButton() {
         personalAreaButton.click();
     }
 
-    public void clickLogoButton (){
+    @Override
+    public void clickLogoButton() {
         logoButton.click();
     }
 }

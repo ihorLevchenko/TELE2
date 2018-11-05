@@ -1,5 +1,6 @@
 package kz.TELE2.pages;
 
+import app.AppPhoneBoxPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -7,8 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class PhoneBoxPage {
-    public WebDriver driver;
+public class PhoneBoxPage implements AppPhoneBoxPage {
+    private WebDriver driver;
 
     public PhoneBoxPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -27,11 +28,13 @@ public class PhoneBoxPage {
     @FindBy(xpath = "//*[@id=\"app\"]/div/div[1]/div/div[3]/div/nav/div/div")
     private WebElement logoutButton;
 
-   public String getUserPhoneNumber(){
+    @Override
+    public String getUserPhoneNumber(){
         String userPhone = userPhoneNumber7076421247.getText();
         return userPhoneNumber7076421247.getText();
     }
 
+    @Override
     public String getUserPhoneNumber1(){
         String userPhone = userPhoneNumber7076421248.getText();
         return userPhoneNumber7076421248.getText();
@@ -46,6 +49,7 @@ public class PhoneBoxPage {
         }
     }*/
 
+    @Override
     public void userLogout() {
         logoutButton.click();
     }
