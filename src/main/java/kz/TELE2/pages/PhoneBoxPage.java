@@ -25,7 +25,7 @@ public class PhoneBoxPage implements AppPhoneBoxPage {
     @FindBy(xpath = "//span[text()='7076421248']")
     private WebElement userPhoneNumber7076421248;
 
-    @FindBy(xpath = "//*[@id=\"app\"]/div/div[1]/div/div[3]/div/nav/div/div")
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div[1]/div/div[3]/div/nav/div/div/span")
     private WebElement logoutButton;
 
     @Override
@@ -39,15 +39,6 @@ public class PhoneBoxPage implements AppPhoneBoxPage {
         String userPhone = userPhoneNumber7076421248.getText();
         return userPhoneNumber7076421248.getText();
     }
-
-   /* Старая логика
-    public boolean isError() {
-        if (userPhoneNumber.isDisplayed()) { //отслеживание ошибки при вводенекорретного
-            return true;
-        } else {
-            return false;
-        }
-    }*/
 
     @Override
     public void userLogout() {

@@ -34,6 +34,9 @@ public class LoginPage implements AppLoginPage {
     @FindBy(xpath = "//*[@id=\"app\"]/div/div[2]/div/div/div[2]/div[1]/form/div[4]")
     private WebElement wrongPassOrNumber;
 
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div[2]/div/div/div[2]/div[1]/form/div[1]/div/p")
+    private WebElement wrongPhoneNumber;
+
     /*методы для работы со элементами*/
 
     @Override
@@ -51,6 +54,31 @@ public class LoginPage implements AppLoginPage {
         loginButton.click();
     }
 
+    public boolean isAlertValidPhoneNumber() {
+        if (wrongPhoneNumber.isDisplayed()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isAlertWrongNumberOrPassword() {
+        if (wrongPassOrNumber.isDisplayed()) { //отслеживание ошибки при вводе некорретного пароля или номера
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isDisableButton() { //Кнокпа войти, состояние активно или нет
+        // (состояние кнопки Disable)
+        if (!loginButton.isEnabled()) {
+            return true;
+        } else
+            return false;
+    }
+}
+
     /*public String getAllertWrongNumberOrPassword(){
         String wrongPassOrNumber = allert.getText();
         return allert.getText();
@@ -67,20 +95,15 @@ public class LoginPage implements AppLoginPage {
             PageFactory.initElements(driver, this);
             this.driver = driver;
         }*/
-    public boolean isAlertWrongNumberOrPassword() {
-        if (!wrongPassOrNumber.isDisplayed()) { //отслеживание ошибки при вводе некорретного пароля или номера
+
+/*    public boolean clickOnElement(WebElement element) {
+        try { //другая реализация
+            element.click();
+            log.info("Element was clicked");
             return true;
-        } else {
+        } catch (Exception e) {
+            log.error("Element was not click");
             return false;
         }
-    }
+    }*/
 
-    public boolean isDisableButton() { //Кнокпа войти, состояние активно или нет
-        // (состояние кнопки Disable)
-
-        if (loginButton.isEnabled()) {
-            return false;
-        } else
-            return true;
-    }
-}

@@ -1,5 +1,8 @@
-package kz.TELE2.pages;
+package kz.TELE2;
 
+import kz.TELE2.pages.HomePage;
+import kz.TELE2.pages.LoginPage;
+import kz.TELE2.pages.PhoneBoxPage;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
@@ -22,7 +25,7 @@ public class Base {
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
         phoneBoxPage = new PhoneBoxPage(driver);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
         driver.get("https://tele2.kz/");
     }
 

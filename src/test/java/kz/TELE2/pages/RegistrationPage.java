@@ -1,6 +1,4 @@
-package kz.TELE2;
-
-import kz.TELE2.pages.BaseClass;
+package kz.TELE2.pages;
 
 public class RegistrationPage  {
 

@@ -14,7 +14,7 @@ public class HomePage implements AppHomePage {
         this.driver = driver;
     }
 
-    @FindBy(xpath = "//*[@id=\"app\"]/div/div[1]/div/div[3]/div/nav/li[4]")
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div[1]/div/div[3]/div/nav/li[5]")
     private WebElement personalAreaButton; //элемент главной страницы, кнопка "Личный кабинет"
 
     @FindBy(xpath = "//*[@id=\"app\"]/div/div[1]/div/div[3]/div/a/div/img")
