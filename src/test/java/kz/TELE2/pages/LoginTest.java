@@ -45,7 +45,7 @@ public class LoginTest extends Base {
                 throw new Throwable();
             }
         } catch (Throwable error) {
-            System.out.println("TEST wrongPhoneNumber: Fail");
+            System.out.println("TEST wrongPhoneNumber: Failed");
         }
         homePage.clickLogoButton();
     }
@@ -64,7 +64,7 @@ public class LoginTest extends Base {
                 throw new Throwable();
             }
         } catch (Throwable error) {
-            System.out.println("TEST wrongPassword: Fail");
+            System.out.println("TEST wrongPassword: Failed");
         }
         homePage.clickLogoButton();
     }
@@ -83,7 +83,7 @@ public class LoginTest extends Base {
                 throw new Throwable();
             }
         } catch (Throwable error) {
-            System.out.println("TEST disableLoginButton: Fail");
+            System.out.println("TEST disableLoginButton: Failed");
         }
     }
 
@@ -101,7 +101,7 @@ public class LoginTest extends Base {
                 throw new Throwable();
             }
         } catch (Throwable error) {
-            System.out.println("TEST phoneNumberNotActive: Fail");
+            System.out.println("TEST phoneNumberNotActive: Failed");
         }
         homePage.clickLogoButton();
     }
