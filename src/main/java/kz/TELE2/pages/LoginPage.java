@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.sym.error;
 
 public class LoginPage implements AppLoginPage {
     private WebDriver driver;
@@ -42,11 +41,13 @@ public class LoginPage implements AppLoginPage {
 
     /*методы для работы со элементами*/
 
+    @Override
     public String emptyPhoneNumberField() {
         String alert = alertEmptyPhoneNumberField.getText();
         return alertEmptyPhoneNumberField.getText();
     }
 
+    @Override
     public String wrongPhoneNumber() {
         String alert = alertWrongPhoneNumber.getText();
         return alertWrongPhoneNumber.getText();
@@ -86,6 +87,7 @@ public class LoginPage implements AppLoginPage {
         loginButton.click();
     }
 
+    @Override
     public boolean isAlertWrongNumberOrPassword() {
         if (alertWrongPassOrNumber.isDisplayed()) { //отслеживание ошибки при вводе некорретного пароля или номера
             return true;
@@ -94,6 +96,7 @@ public class LoginPage implements AppLoginPage {
         }
     }
 
+    @Override
     public boolean isDisableButton() { //Кнокпа войти, состояние активно или нет
         // (состояние кнопки Disable)
         if (!loginButton.isEnabled()) {

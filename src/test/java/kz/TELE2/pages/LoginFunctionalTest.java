@@ -7,7 +7,7 @@ public class LoginFunctionalTest extends Base {
     //Позитивные тесты
     @Test
     public void loginTestPositiveOk47() {
-        homePage.clickPersonalAreaButton();
+        anyPage.clickPersonalAreaButton();
         loginPage.inputPhoneNumberField("7076421247");
         loginPage.inputPasswordField("1234");
         loginPage.clickLoginButton();
@@ -20,7 +20,7 @@ public class LoginFunctionalTest extends Base {
 
     @Test
     public void loginTestPositiveOk48() {
-        homePage.clickPersonalAreaButton();
+        anyPage.clickPersonalAreaButton();
         loginPage.inputPhoneNumberField("7076421248");
         loginPage.inputPasswordField("1234");
         loginPage.clickLoginButton();
@@ -34,7 +34,7 @@ public class LoginFunctionalTest extends Base {
     @Test
     public void wrongPhoneNumber() {
         //Невалидный номер телефона
-        homePage.clickPersonalAreaButton();
+        anyPage.clickPersonalAreaButton();
         loginPage.inputPhoneNumberField("7776665544");//wrong phone number
         loginPage.inputPasswordField("1234");
         loginPage.clickLoginButton();
@@ -47,13 +47,13 @@ public class LoginFunctionalTest extends Base {
         } catch (Throwable error) {
             System.out.println("TEST wrongPhoneNumber: Failed");
         }
-        homePage.clickLogoButton();
+        anyPage.clickLogoButton();
     }
 
     @Test
     //Невалидный пароль
     public void wrongPassword() {
-        homePage.clickPersonalAreaButton();
+        anyPage.clickPersonalAreaButton();
         loginPage.inputPhoneNumberField("7076421243");
         loginPage.inputPasswordField("3333");//wrong pass
         loginPage.clickLoginButton();
@@ -66,13 +66,13 @@ public class LoginFunctionalTest extends Base {
         } catch (Throwable error) {
             System.out.println("TEST wrongPassword: Failed");
         }
-        homePage.clickLogoButton();
+        anyPage.clickLogoButton();
     }
 
     @Test
     //Тест на активность кнопки "Войти", на экране входа в личный кабинет
     public void disableLoginButton() {
-        homePage.clickPersonalAreaButton();
+        anyPage.clickPersonalAreaButton();
         loginPage.inputPhoneNumberField("7076421243");
         loginPage.inputPasswordField("");
         loginPage.isDisableButton();
@@ -91,26 +91,26 @@ public class LoginFunctionalTest extends Base {
     //Проверка валидации номера + отображение алерта "Номер телефона введен не корректно"
     // . Ввести некорректный номер телефона 707642124
     public void invalidPhoneNumber() {
-        homePage.clickPersonalAreaButton();
+        anyPage.clickPersonalAreaButton();
         loginPage.inputPhoneNumberField("7076421243");
         loginPage.clearOneNumber();
         loginPage.inputPasswordField("1234");
         String wrongNumberPhone = loginPage.wrongPhoneNumber();
         Assert.assertEquals("Номер телефона введен не корректно", wrongNumberPhone);
-        homePage.clickLogoButton();
+        anyPage.clickLogoButton();
         System.out.println("TEST phoneNumberNotActive: Pass");
     }
 
     @Test
     //Проверка отображения алерта "Поле не должно быть пустым"
     public void theFieldMustNotBeEmpty() {
-        homePage.clickPersonalAreaButton();
+        anyPage.clickPersonalAreaButton();
         loginPage.inputPhoneNumberField("7076421243");
         loginPage.clearAllPhoneNumberField();
         loginPage.inputPasswordField("123456");
         String emptyFieldPhoneNumber = loginPage.emptyPhoneNumberField();
         Assert.assertEquals("Поле не должно быть пустым", emptyFieldPhoneNumber);
-        homePage.clickLogoButton();
+        anyPage.clickLogoButton();
         System.out.println("TEST theFieldMustNotBeEmpty: Pass");
     }
 }

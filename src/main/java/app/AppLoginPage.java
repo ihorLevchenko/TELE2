@@ -10,4 +10,12 @@ public interface AppLoginPage {
     void clearOneNumber();
 
     void clearAllPhoneNumberField();
+
+    String emptyPhoneNumberField();
+
+    String wrongPhoneNumber();
+
+    boolean isAlertWrongNumberOrPassword();
+
+    boolean isDisableButton();
 }

@@ -1,15 +1,15 @@
 package kz.TELE2.pages;
 
-import app.AppHomePage;
+import app.AppAnyPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage implements AppHomePage {
+public class AnyPage implements AppAnyPage {
     private WebDriver driver;
 
-    public HomePage(WebDriver driver) {
+    public AnyPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }

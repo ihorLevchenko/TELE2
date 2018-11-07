@@ -1,6 +1,6 @@
 package kz.TELE2;
 
-import kz.TELE2.pages.HomePage;
+import kz.TELE2.pages.AnyPage;
 import kz.TELE2.pages.LoginPage;
 import kz.TELE2.pages.PhoneBoxPage;
 import org.junit.AfterClass;
@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Base {
     public static WebDriver driver;
-    public static HomePage homePage;
+    public static AnyPage anyPage;
     public static LoginPage loginPage;
     public static PhoneBoxPage phoneBoxPage;
 
@@ -22,7 +22,7 @@ public class Base {
     public static void setup() {
         System.setProperty("webdriver.chrome.driver", "/Users/i.levchenko/Desktop/chromedriver");
         driver = new ChromeDriver();
-        homePage = new HomePage(driver);
+        anyPage = new AnyPage(driver);
         loginPage = new LoginPage(driver);
         phoneBoxPage = new PhoneBoxPage(driver);
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);

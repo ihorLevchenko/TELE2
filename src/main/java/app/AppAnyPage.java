@@ -1,6 +1,6 @@
 package app;
 
-public interface AppHomePage {
+public interface AppAnyPage {
     void clickPersonalAreaButton();
 
     void clickLogoButton();
