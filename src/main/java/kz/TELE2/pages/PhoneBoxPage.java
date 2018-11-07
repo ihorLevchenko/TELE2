@@ -19,7 +19,7 @@ public class PhoneBoxPage implements AppPhoneBoxPage {
     /*@FindBy(xpath = "//*[@id=\"app\"]/div/div[1]/div/div[3]/div/nav/div/span[2]")
     private WebElement userPhoneNumber;*/
 
-    @FindBy(xpath = "//span[text()='7076421247']")
+    @FindBy(xpath = "//span[contains(text(),'7076421247')]")
     private WebElement userPhoneNumber7076421247;
 
     @FindBy(xpath = "//span[text()='7076421248']")

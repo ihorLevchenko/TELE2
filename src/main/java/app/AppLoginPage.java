@@ -6,4 +6,8 @@ public interface AppLoginPage {
     void inputPasswordField(String pass);
 
     void clickLoginButton();
+
+    void clearOneNumber();
+
+    void clearAllPhoneNumberField();
 }

@@ -14,10 +14,10 @@ public class HomePage implements AppHomePage {
         this.driver = driver;
     }
 
-    @FindBy(xpath = "//*[@id=\"app\"]/div/div[1]/div/div[3]/div/nav/li[5]")
+    @FindBy(xpath = "//li[@class='_1g9a1Y']//a[@class='_1TUp3t _1FF0US'][contains(text(),'Личный кабинет')]")
     private WebElement personalAreaButton; //элемент главной страницы, кнопка "Личный кабинет"
 
-    @FindBy(xpath = "//*[@id=\"app\"]/div/div[1]/div/div[3]/div/a/div/img")
+    @FindBy(xpath = "//div[@class='uoBndM']//img")
     private WebElement logoButton;
 
     @Override

@@ -25,7 +25,7 @@ public class Base {
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
         phoneBoxPage = new PhoneBoxPage(driver);
-        driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
         driver.get("https://tele2.kz/");
     }
 

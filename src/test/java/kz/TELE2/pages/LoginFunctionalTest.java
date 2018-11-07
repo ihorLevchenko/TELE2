@@ -3,7 +3,7 @@ package kz.TELE2.pages;
 import kz.TELE2.Base;
 import org.junit.*;
 
-public class LoginTest extends Base {
+public class LoginFunctionalTest extends Base {
     //Позитивные тесты
     @Test
     public void loginTestPositiveOk47() {
@@ -88,21 +88,29 @@ public class LoginTest extends Base {
     }
 
     @Test
-    //Проверка валидации номера + отображение аллерта "Номер телефона введен не корректно"
+    //Проверка валидации номера + отображение алерта "Номер телефона введен не корректно"
     // . Ввести некорректный номер телефона 707642124
-    public void phoneNumberNotActive() {
+    public void invalidPhoneNumber() {
         homePage.clickPersonalAreaButton();
-        loginPage.inputPhoneNumberField("707642124");
+        loginPage.inputPhoneNumberField("7076421243");
+        loginPage.clearOneNumber();
         loginPage.inputPasswordField("1234");
-        try {
-            if (loginPage.isAlertValidPhoneNumber())
-                System.out.println("TEST phoneNumberNotActive: Pass");
-            else {
-                throw new Throwable();
-            }
-        } catch (Throwable error) {
-            System.out.println("TEST phoneNumberNotActive: Failed");
-        }
+        String wrongNumberPhone = loginPage.wrongPhoneNumber();
+        Assert.assertEquals("Номер телефона введен не корректно", wrongNumberPhone);
         homePage.clickLogoButton();
+        System.out.println("TEST phoneNumberNotActive: Pass");
+    }
+
+    @Test
+    //Проверка отображения алерта "Поле не должно быть пустым"
+    public void theFieldMustNotBeEmpty() {
+        homePage.clickPersonalAreaButton();
+        loginPage.inputPhoneNumberField("7076421243");
+        loginPage.clearAllPhoneNumberField();
+        loginPage.inputPasswordField("123456");
+        String emptyFieldPhoneNumber = loginPage.emptyPhoneNumberField();
+        Assert.assertEquals("Поле не должно быть пустым", emptyFieldPhoneNumber);
+        homePage.clickLogoButton();
+        System.out.println("TEST theFieldMustNotBeEmpty: Pass");
     }
 }
