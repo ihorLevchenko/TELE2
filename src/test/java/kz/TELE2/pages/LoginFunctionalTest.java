@@ -40,12 +40,12 @@ public class LoginFunctionalTest extends Base {
         loginPage.clickLoginButton();
         try {
             if (loginPage.isAlertWrongNumberOrPassword())
-                System.out.println("TEST wrongPhoneNumber: Pass");
+                System.out.println("TEST wrongPhoneNumberOrEmptyField: Pass");
             else {
                 throw new Throwable();
             }
         } catch (Throwable error) {
-            System.out.println("TEST wrongPhoneNumber: Failed");
+            System.out.println("TEST wrongPhoneNumberOrEmptyField: Failed");
         }
         anyPage.clickLogoButton();
     }
@@ -95,7 +95,7 @@ public class LoginFunctionalTest extends Base {
         loginPage.inputPhoneNumberField("7076421243");
         loginPage.clearOneNumber();
         loginPage.inputPasswordField("1234");
-        String wrongNumberPhone = loginPage.wrongPhoneNumber();
+        String wrongNumberPhone = loginPage.wrongPhoneNumberOrEmptyField();
         Assert.assertEquals("Номер телефона введен не корректно", wrongNumberPhone);
         anyPage.clickLogoButton();
         System.out.println("TEST phoneNumberNotActive: Pass");
@@ -108,7 +108,7 @@ public class LoginFunctionalTest extends Base {
         loginPage.inputPhoneNumberField("7076421243");
         loginPage.clearAllPhoneNumberField();
         loginPage.inputPasswordField("123456");
-        String emptyFieldPhoneNumber = loginPage.emptyPhoneNumberField();
+        String emptyFieldPhoneNumber = loginPage.wrongPhoneNumberOrEmptyField();
         Assert.assertEquals("Поле не должно быть пустым", emptyFieldPhoneNumber);
         anyPage.clickLogoButton();
         System.out.println("TEST theFieldMustNotBeEmpty: Pass");

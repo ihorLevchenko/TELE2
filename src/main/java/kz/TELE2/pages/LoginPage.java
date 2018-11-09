@@ -30,27 +30,20 @@ public class LoginPage implements AppLoginPage {
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement loginButton;
 
-    @FindBy(css = "div._1GxBaJ div._1eMxx_ div.zhDPuI div._2UkYYV div._3etfZQ div._9NvMTO form.TrzPzY > div._1P2sUh:nth-child(4)")
+    @FindBy(xpath = "//div[@class='_1P2sUh' and string-length(text())]")
     private WebElement alertWrongPassOrNumber;
 
-    @FindBy(css = "div._1GxBaJ div._1eMxx_ div.zhDPuI div._2UkYYV div._3etfZQ div._9NvMTO form.TrzPzY div.BbY4rI._1b3TVJ:nth-child(1) div.zgdVwM._3dzd4E._1X-NIB > p.PynFgb")
-    private WebElement alertWrongPhoneNumber;
-
-    @FindBy(css = "div._1GxBaJ div._1eMxx_ div.zhDPuI div._2UkYYV div._3etfZQ div._9NvMTO form.TrzPzY div.BbY4rI._1b3TVJ:nth-child(1) div.zgdVwM._3dzd4E._1X-NIB > p.PynFgb")
-    private WebElement alertEmptyPhoneNumberField;
+    @FindBy(xpath = "//p[@class='PynFgb' and string-length(text())]")
+    private WebElement alertWrongPhoneNumberOrEmptyField;
 
     /*методы для работы со элементами*/
 
-    @Override
-    public String emptyPhoneNumberField() {
-        String alert = alertEmptyPhoneNumberField.getText();
-        return alertEmptyPhoneNumberField.getText();
-    }
+
 
     @Override
-    public String wrongPhoneNumber() {
-        String alert = alertWrongPhoneNumber.getText();
-        return alertWrongPhoneNumber.getText();
+    public String wrongPhoneNumberOrEmptyField() {
+        String alert = alertWrongPhoneNumberOrEmptyField.getText();
+        return alertWrongPhoneNumberOrEmptyField.getText();
     }
 
     @Override

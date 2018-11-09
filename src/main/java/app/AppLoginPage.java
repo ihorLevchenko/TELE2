@@ -11,9 +11,7 @@ public interface AppLoginPage {
 
     void clearAllPhoneNumberField();
 
-    String emptyPhoneNumberField();
-
-    String wrongPhoneNumber();
+    String wrongPhoneNumberOrEmptyField();
 
     boolean isAlertWrongNumberOrPassword();
 
