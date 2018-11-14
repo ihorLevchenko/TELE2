@@ -1,7 +1,6 @@
 package kz.TELE2.pages;
 
 import app.AppAnyPage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -62,63 +61,75 @@ public class AnyPage implements AppAnyPage {
 
 
     @Override
-    public void clickPersonalAreaButton() {
+    public AnyPage clickPersonalAreaButton() {
         personalAreaButton.click();
+        return new AnyPage(driver);
     }
 
     @Override
-    public void clickLogoButton() {
+    public AnyPage clickLogoButton() {
         logoButton.click();
+        return new AnyPage(driver);
     }
 
     @Override
-    public void clickPrivateClients() {
+    public AnyPage clickPrivateClients() {
         privateClients.click();
+        return new AnyPage(driver);
     }
 
     @Override
-    public void clickCorporateClients() {
+    public AnyPage clickCorporateClients() {
         corporateClients.click();
+        return new AnyPage(driver);
     }
 
     @Override
-    public void clickTariffs() {
+    public AnyPage clickTariffs() {
         tariffs.click();
+        return new AnyPage(driver);
     }
 
     @Override
-    public void clickServices() {
+    public AnyPage clickServices() {
         services.click();
+        return new AnyPage(driver);
     }
 
     @Override
-    public void clickRoaming() {
+    public AnyPage clickRoaming() {
         roaming.click();
+        return new AnyPage(driver);
     }
 
     @Override
-    public void clickPersonalAreaButtonDown() {
+    public AnyPage clickPersonalAreaButtonDown() {
         personalAreaButtonDown.click();
+        return new AnyPage(driver);
     }
 
     @Override
-    public void clickLogoButtonDown() {
+    public AnyPage clickLogoButtonDown() {
         logoButtonDown.click();
+        return new AnyPage(driver);
     }
 
     @Override
-    public void clickTariffPlansDown() {
+    public AnyPage clickTariffPlansDown() {
         tariffPlansDown.click();
+        return new AnyPage(driver);
     }
 
     @Override
-    public void clickServicesDown() {
+    public AnyPage clickServicesDown() {
         servicesDown.click();
+        return new AnyPage(driver);
     }
 
     @Override
-    public void clickRoamingDown() {
+    public AnyPage clickRoamingDown() {
         roamingDown.click();
+        return new AnyPage(driver);
     }
 
     @Override
@@ -128,27 +139,32 @@ public class AnyPage implements AppAnyPage {
     }
 
     @Override
-    public void clickFacebook() {
+    public AnyPage clickFacebook() {
         facebook.click();
+        return new AnyPage(driver);
     }
 
     @Override
-    public void clickTwitter() {
+    public AnyPage clickTwitter() {
         twitter.click();
+        return new AnyPage(driver);
     }
 
     @Override
-    public void clickVcCom() {
+    public AnyPage clickVcCom() {
         vc_com.click();
+        return new AnyPage(driver);
     }
 
     @Override
-    public void clickYoutube() {
+    public AnyPage clickYoutube() {
         youtube.click();
+        return new AnyPage(driver);
     }
 
     @Override
-    public void clickInstagram() {
+    public AnyPage clickInstagram() {
         instagram.click();
+        return new AnyPage(driver);
     }
 }

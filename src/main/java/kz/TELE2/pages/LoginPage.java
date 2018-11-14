@@ -23,16 +23,12 @@ public class LoginPage implements AppLoginPage {
     //Находим вэб элементы
     @FindBy(xpath = "//*[@id=\"app\"]/div/div[2]/div/div/div[2]/div[1]/form/div[1]/div/div/input")
     private WebElement phoneNumberField;
-
     @FindBy(xpath = "//input[@name='pass']")
     private WebElement passwordField;
-
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement loginButton;
-
-    @FindBy(xpath = "//div[@class='_1P2sUh' and string-length(text())]")
+    @FindBy(xpath = "//div[@class='_1P2sUh' and text()='Неверный телефон или пароль']")
     private WebElement alertWrongPassOrNumber;
-
     @FindBy(xpath = "//p[@class='PynFgb' and string-length(text())]")
     private WebElement alertWrongPhoneNumberOrEmptyField;
 
@@ -43,50 +39,51 @@ public class LoginPage implements AppLoginPage {
     @Override
     public String wrongPhoneNumberOrEmptyField() {
         String alert = alertWrongPhoneNumberOrEmptyField.getText();
-        return alertWrongPhoneNumberOrEmptyField.getText();
+        return alert;
+    }
+
+    public String wrongPhoneNumberOrPass() {
+        String alert = alertWrongPassOrNumber.getText();
+        return alert;
     }
 
     @Override
-    public void inputPhoneNumberField(String phone) {
+    public LoginPage inputPhoneNumberField(String phone) {
         phoneNumberField.sendKeys(Keys.HOME + phone);
+        return new LoginPage(driver);
     }
 
     @Override
-    public void clearOneNumber() {
-        phoneNumberField.sendKeys(Keys.BACK_SPACE);
-    }
-
-    @Override
-    public void clearAllPhoneNumberField() {
-        phoneNumberField.sendKeys(Keys.BACK_SPACE);
-        phoneNumberField.sendKeys(Keys.BACK_SPACE);
-        phoneNumberField.sendKeys(Keys.BACK_SPACE);
-        phoneNumberField.sendKeys(Keys.BACK_SPACE);
-        phoneNumberField.sendKeys(Keys.BACK_SPACE);
-        phoneNumberField.sendKeys(Keys.BACK_SPACE);
-        phoneNumberField.sendKeys(Keys.BACK_SPACE);
-        phoneNumberField.sendKeys(Keys.BACK_SPACE);
-        phoneNumberField.sendKeys(Keys.BACK_SPACE);
-        phoneNumberField.sendKeys(Keys.BACK_SPACE);
-    }
-
-    @Override
-    public void inputPasswordField(String password) {
+    public LoginPage inputPasswordField(String password) {
         passwordField.sendKeys(password);
+        return new LoginPage(driver);
     }
 
     @Override
-    public void clickLoginButton() {
+    public LoginPage clickLoginButton() {
         loginButton.click();
+        return new LoginPage(driver);
     }
 
     @Override
-    public boolean isAlertWrongNumberOrPassword() {
-        if (alertWrongPassOrNumber.isDisplayed()) { //отслеживание ошибки при вводе некорретного пароля или номера
-            return true;
-        } else {
-            return false;
-        }
+    public LoginPage clearAllPhoneNumberField() {
+        phoneNumberField.sendKeys(Keys.BACK_SPACE);
+        phoneNumberField.sendKeys(Keys.BACK_SPACE);
+        phoneNumberField.sendKeys(Keys.BACK_SPACE);
+        phoneNumberField.sendKeys(Keys.BACK_SPACE);
+        phoneNumberField.sendKeys(Keys.BACK_SPACE);
+        phoneNumberField.sendKeys(Keys.BACK_SPACE);
+        phoneNumberField.sendKeys(Keys.BACK_SPACE);
+        phoneNumberField.sendKeys(Keys.BACK_SPACE);
+        phoneNumberField.sendKeys(Keys.BACK_SPACE);
+        phoneNumberField.sendKeys(Keys.BACK_SPACE);
+        return new LoginPage(driver);
+    }
+
+    @Override
+    public LoginPage clearOneNumber() {
+        phoneNumberField.sendKeys(Keys.BACK_SPACE);
+        return new LoginPage(driver);
     }
 
     @Override

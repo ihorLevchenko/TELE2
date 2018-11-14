@@ -1,8 +1,6 @@
 package kz.TELE2.pages;
 
 import app.AppPhoneBoxPage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -41,8 +39,9 @@ public class PhoneBoxPage implements AppPhoneBoxPage {
     }
 
     @Override
-    public void userLogout() {
+    public PhoneBoxPage userLogout() {
         logoutButton.click();
+        return new PhoneBoxPage(driver);
     }
 }
 

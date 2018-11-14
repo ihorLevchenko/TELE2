@@ -1,19 +1,19 @@
 package app;
 
+import kz.TELE2.pages.LoginPage;
+
 public interface AppLoginPage {
-    void inputPhoneNumberField(String phone);
+    LoginPage inputPhoneNumberField(String phone);
 
-    void inputPasswordField(String pass);
+    LoginPage inputPasswordField(String pass);
 
-    void clickLoginButton();
+    LoginPage clickLoginButton();
 
-    void clearOneNumber();
+    LoginPage clearOneNumber();
 
-    void clearAllPhoneNumberField();
+    LoginPage clearAllPhoneNumberField();
 
     String wrongPhoneNumberOrEmptyField();
-
-    boolean isAlertWrongNumberOrPassword();
 
     boolean isDisableButton();
 }

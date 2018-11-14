@@ -1,38 +1,42 @@
 package app;
 
+import kz.TELE2.pages.AnyPage;
+
 public interface AppAnyPage {
-    void clickPrivateClients();
+    AnyPage clickPrivateClients();
 
-    void clickCorporateClients();
-    void clickPersonalAreaButton();
-    void clickLogoButton();
+    AnyPage clickCorporateClients();
 
-    void clickTariffs();
+    AnyPage clickPersonalAreaButton();
 
-    void clickServices();
+    AnyPage clickLogoButton();
 
-    void clickRoaming();
+    AnyPage clickTariffs();
 
-    void clickPersonalAreaButtonDown();
+    AnyPage clickServices();
 
-    void clickLogoButtonDown();
+    AnyPage clickRoaming();
 
-    void clickTariffPlansDown();
+    AnyPage clickPersonalAreaButtonDown();
 
-    void clickServicesDown();
+    AnyPage clickLogoButtonDown();
 
-    void clickRoamingDown();
+    AnyPage clickTariffPlansDown();
+
+    AnyPage clickServicesDown();
+
+    AnyPage clickRoamingDown();
 
     String getLicenseTELE2();
 
-    void clickFacebook();
+    AnyPage clickFacebook();
 
-    void clickTwitter();
+    AnyPage clickTwitter();
 
-    void clickVcCom();
+    AnyPage clickVcCom();
 
-    void clickYoutube();
+    AnyPage clickYoutube();
 
-    void clickInstagram();
+    AnyPage clickInstagram();
 
 }

@@ -7,10 +7,12 @@ public class LoginFunctionalTest extends Base {
     //Позитивные тесты
     @Test
     public void loginTestPositiveOk47() {
-        anyPage.clickPersonalAreaButton();
-        loginPage.inputPhoneNumberField("7076421247");
-        loginPage.inputPasswordField("1234");
-        loginPage.clickLoginButton();
+        anyPage
+                .clickPersonalAreaButton();
+        loginPage
+                .inputPhoneNumberField("7076421247")
+                .inputPasswordField("1234")
+                .clickLoginButton();
         String phoneUser = phoneBoxPage.getUserPhoneNumber();
         Assert.assertEquals("7076421247", phoneUser);
         phoneBoxPage.userLogout();
@@ -20,10 +22,12 @@ public class LoginFunctionalTest extends Base {
 
     @Test
     public void loginTestPositiveOk48() {
-        anyPage.clickPersonalAreaButton();
-        loginPage.inputPhoneNumberField("7076421248");
-        loginPage.inputPasswordField("1234");
-        loginPage.clickLoginButton();
+        anyPage
+                .clickPersonalAreaButton();
+        loginPage
+                .inputPhoneNumberField("7076421248")
+                .inputPasswordField("1234")
+                .clickLoginButton();
         String phoneUser = phoneBoxPage.getUserPhoneNumber1();
         Assert.assertEquals("7076421248", phoneUser);
         phoneBoxPage.userLogout();
@@ -34,38 +38,27 @@ public class LoginFunctionalTest extends Base {
     @Test
     public void wrongPhoneNumber() {
         //Невалидный номер телефона
-        anyPage.clickPersonalAreaButton();
-        loginPage.inputPhoneNumberField("7776665544");//wrong phone number
-        loginPage.inputPasswordField("1234");
-        loginPage.clickLoginButton();
-        try {
-            if (loginPage.isAlertWrongNumberOrPassword())
-                System.out.println("TEST wrongPhoneNumberOrEmptyField: Pass");
-            else {
-                throw new Throwable();
-            }
-        } catch (Throwable error) {
-            System.out.println("TEST wrongPhoneNumberOrEmptyField: Failed");
-        }
+        anyPage
+                .clickPersonalAreaButton();
+        loginPage
+                .inputPhoneNumberField("7776665544")//wrong phone number
+                .inputPasswordField("1234")
+                .clickLoginButton();
+        String alert = loginPage.wrongPhoneNumberOrPass();
+        Assert.assertEquals("Неверный телефон или пароль", alert);
         anyPage.clickLogoButton();
     }
 
     @Test
     //Невалидный пароль
     public void wrongPassword() {
-        anyPage.clickPersonalAreaButton();
-        loginPage.inputPhoneNumberField("7076421243");
-        loginPage.inputPasswordField("3333");//wrong pass
-        loginPage.clickLoginButton();
-        try {
-            if (loginPage.isAlertWrongNumberOrPassword())
-                System.out.println("TEST wrongPassword: Pass");
-            else {
-                throw new Throwable();
-            }
-        } catch (Throwable error) {
-            System.out.println("TEST wrongPassword: Failed");
-        }
+        anyPage
+                .clickPersonalAreaButton();
+        loginPage.inputPhoneNumberField("7076421243")
+                .inputPasswordField("3333")//wrong pass
+                .clickLoginButton();
+        String alert = loginPage.wrongPhoneNumberOrPass();
+        Assert.assertEquals("Неверный телефон или пароль", alert);
         anyPage.clickLogoButton();
     }
 
@@ -73,9 +66,9 @@ public class LoginFunctionalTest extends Base {
     //Тест на активность кнопки "Войти", на экране входа в личный кабинет
     public void disableLoginButton() {
         anyPage.clickPersonalAreaButton();
-        loginPage.inputPhoneNumberField("7076421243");
-        loginPage.inputPasswordField("");
-        loginPage.isDisableButton();
+        loginPage.inputPhoneNumberField("7076421243")
+                .inputPasswordField("")
+                .isDisableButton();
         try {
             if (loginPage.isDisableButton())
                 System.out.println("TEST disableLoginButton: Pass");
@@ -91,10 +84,12 @@ public class LoginFunctionalTest extends Base {
     //Проверка валидации номера + отображение алерта "Номер телефона введен не корректно"
     // . Ввести некорректный номер телефона 707642124
     public void invalidPhoneNumber() {
-        anyPage.clickPersonalAreaButton();
-        loginPage.inputPhoneNumberField("7076421243");
-        loginPage.clearOneNumber();
-        loginPage.inputPasswordField("1234");
+        anyPage
+                .clickPersonalAreaButton();
+        loginPage
+                .inputPhoneNumberField("7076421243")
+                .clearOneNumber()
+                .inputPasswordField("1234");
         String wrongNumberPhone = loginPage.wrongPhoneNumberOrEmptyField();
         Assert.assertEquals("Номер телефона введен не корректно", wrongNumberPhone);
         anyPage.clickLogoButton();
@@ -104,13 +99,22 @@ public class LoginFunctionalTest extends Base {
     @Test
     //Проверка отображения алерта "Поле не должно быть пустым"
     public void theFieldMustNotBeEmpty() {
-        anyPage.clickPersonalAreaButton();
-        loginPage.inputPhoneNumberField("7076421243");
-        loginPage.clearAllPhoneNumberField();
-        loginPage.inputPasswordField("123456");
+        anyPage
+                .clickPersonalAreaButton();
+        loginPage.inputPhoneNumberField("7076421243")
+                .clearAllPhoneNumberField()
+                .inputPasswordField("123456");
         String emptyFieldPhoneNumber = loginPage.wrongPhoneNumberOrEmptyField();
         Assert.assertEquals("Поле не должно быть пустым", emptyFieldPhoneNumber);
         anyPage.clickLogoButton();
         System.out.println("TEST theFieldMustNotBeEmpty: Pass");
+    }
+
+    @Test
+    //Проверка валидность текстовки лизензии
+    public void validLicense() {
+        String licenseTele2 = anyPage.getLicenseTELE2();
+        Assert.assertEquals("2018 © Tele2 Лицензия АБА № 000950 выдана АИС РК", licenseTele2);
+        System.out.println("TEST validLicense: Pass");
     }
 }
