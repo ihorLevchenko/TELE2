@@ -1,15 +1,15 @@
 package kz.TELE2.pages.tarifs;
 
-import app.AppTarifsPage;
+import app.AppTariffsPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class TarifsPage implements AppTarifsPage {
+public class TariffsPage implements AppTariffsPage {
     private WebDriver driver;
 
-    public TarifsPage(WebDriver driver) {
+    public TariffsPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
@@ -32,33 +32,33 @@ public class TarifsPage implements AppTarifsPage {
 
 
     @Override
-    public TarifsPage clickOnButtonConnectTatif1() {
+    public TariffsPage clickOnButtonConnectTatif1() {
         buttonConnect1.click();
-        return new TarifsPage(driver);
+        return new TariffsPage(driver);
     }
 
     @Override
-    public TarifsPage clickOnButtonConnectTatif2() {
+    public TariffsPage clickOnButtonConnectTatif2() {
         buttonConnect2.click();
-        return new TarifsPage(driver);
+        return new TariffsPage(driver);
     }
 
     @Override
-    public TarifsPage clickOnButtonConnectTatif3() {
+    public TariffsPage clickOnButtonConnectTatif3() {
         buttonConnect3.click();
-        return new TarifsPage(driver);
+        return new TariffsPage(driver);
     }
 
     @Override
-    public TarifsPage clickMainPageLink() {
+    public TariffsPage clickMainPageLink() {
         mainPageLink.click();
-        return new TarifsPage(driver);
+        return new TariffsPage(driver);
     }
 
     @Override
-    public TarifsPage clickAllTarifsLink() {
+    public TariffsPage clickAllTarifsLink() {
         allTarifsLink.click();
-        return new TarifsPage(driver);
+        return new TariffsPage(driver);
     }
 
     @Override
