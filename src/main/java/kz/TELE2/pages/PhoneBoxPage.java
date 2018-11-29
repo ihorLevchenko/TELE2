@@ -1,6 +1,7 @@
 package kz.TELE2.pages;
 
 import app.AppPhoneBoxPage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,8 +24,17 @@ public class PhoneBoxPage implements AppPhoneBoxPage {
     @FindBy(xpath = "//span[text()='7076421248']")
     private WebElement userPhoneNumber7076421248;
 
-    @FindBy(xpath = "//*[@id=\"app\"]/div/div[1]/div/div[3]/div/nav/div/div/span")
+    @FindBy(xpath = "//span[contains(text(), 'Выйти')]")
     private WebElement logoutButton;
+
+    @FindBy(xpath = "//a[contains(text(),'Тест/КД/Махонина Ольга')]")
+    private WebElement profileLink;
+
+
+    public void clickProfileTabLink(String listName) {
+        String listXpath = String.format("//div[@class='_1mVUHT']/a[text()='%s']", listName);
+        driver.findElement(By.xpath(listXpath)).click();
+    }
 
     @Override
     public String getUserPhoneNumber(){
@@ -41,6 +51,11 @@ public class PhoneBoxPage implements AppPhoneBoxPage {
     @Override
     public PhoneBoxPage userLogout() {
         logoutButton.click();
+        return new PhoneBoxPage(driver);
+    }
+
+    public PhoneBoxPage clickProfileLink() {
+        profileLink.click();
         return new PhoneBoxPage(driver);
     }
 }

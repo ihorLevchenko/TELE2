@@ -86,7 +86,7 @@ public class LoginFunctionalTest extends Base {
         anyPage
                 .clickPersonalAreaButton();
         loginPage
-                .inputPhoneNumberField("7076421243")
+                .inputPhoneNumberField("7076427777")
                 .clearOneNumber()
                 .inputPasswordField("1234");
         String wrongNumberPhone = loginPage.wrongPhoneNumberOrEmptyField();
@@ -183,5 +183,27 @@ public class LoginFunctionalTest extends Base {
         String licenseTele2 = anyPage.getLicenseTELE2();
         Assert.assertEquals("2018 © Tele2 Лицензия АБА № 000950 выдана АИС РК", licenseTele2);
         System.out.println("TEST correctGotoTheLinkRoaming: Pass");
+    }
+
+    @Test
+    public void checkForCorrectCountries() {
+        anyPage
+                .clickPersonalAreaButton();
+        loginPage
+                .inputPhoneNumberField("7076421247")
+                .inputPasswordField("1234")
+                .clickLoginButton();
+        String phoneUser = phoneBoxPage.getUserPhoneNumber();
+        Assert.assertEquals("7076421247", phoneUser);
+        phoneBoxPage
+                .clickProfileLink()
+                .clickProfileTabLink("Роуминг");
+        tabRoamingPage.clickBlockInternetPackagesAndServicesInRoaming("1");
+        String alert = tabRoamingPage.getDrop_downListOfCountriesDostupRoaming(1);
+        Assert.assertEquals("Азербайджан", alert);
+        String alert1 = tabRoamingPage.getDrop_downListOfCountriesDostupRoaming(4);
+        Assert.assertEquals("Армения", alert1);
+        phoneBoxPage.userLogout();
+        System.out.println("TEST checkForCorrectCountries: Pass");
     }
 }

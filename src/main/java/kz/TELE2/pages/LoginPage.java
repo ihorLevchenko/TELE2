@@ -1,6 +1,7 @@
 package kz.TELE2.pages;
 
 import app.AppLoginPage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,21 +22,19 @@ public class LoginPage implements AppLoginPage {
     }
 
     //Находим вэб элементы
-    @FindBy(xpath = "//*[@id=\"app\"]/div/div[2]/div/div/div[2]/div[1]/form/div[1]/div/div/input")
+    @FindBy(xpath = "//input[contains(@value,'+7')]")
     private WebElement phoneNumberField;
-    @FindBy(xpath = "//input[@name='pass']")
+    @FindBy(xpath = "//input[contains(@name,'pass')]")
     private WebElement passwordField;
-    @FindBy(xpath = "//button[@type='submit']")
+    @FindBy(xpath = "//button[text()='Войти']")
     private WebElement loginButton;
     @FindBy(xpath = "//div[@class='_1P2sUh' and text()='Неверный телефон или пароль']")
     private WebElement alertWrongPassOrNumber;
     @FindBy(xpath = "//p[@class='PynFgb' and string-length(text())]")
     private WebElement alertWrongPhoneNumberOrEmptyField;
 
+
     /*методы для работы со элементами*/
-
-
-
     @Override
     public String wrongPhoneNumberOrEmptyField() {
         String alert = alertWrongPhoneNumberOrEmptyField.getText();
