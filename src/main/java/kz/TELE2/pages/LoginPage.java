@@ -22,9 +22,9 @@ public class LoginPage implements AppLoginPage {
     }
 
     //Находим вэб элементы
-    @FindBy(xpath = "//input[contains(@value,'+7')]")
+    @FindBy(xpath = "//input[@name='tel']")
     private WebElement phoneNumberField;
-    @FindBy(xpath = "//input[contains(@name,'pass')]")
+    @FindBy(xpath = "//input[@name='pass']")
     private WebElement passwordField;
     @FindBy(xpath = "//button[text()='Войти']")
     private WebElement loginButton;

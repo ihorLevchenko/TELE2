@@ -19,7 +19,7 @@ public class AnyPage implements AppAnyPage {
     private WebElement privateClients;
     @FindBy(xpath = "//span[@class='_3jUpGr']")
     private WebElement corporateClients;
-    @FindBy(xpath = "//li[@class='_1g9a1Y']//a[@class='_1TUp3t _1FF0US'][contains(text(),'Личный кабинет')]")
+    @FindBy(xpath = "//li[contains(@class,'_1g9a1Y')]//a[contains(@class,'_1TUp3t _1FF0US')][contains(text(),'Личный кабинет')]")
     private WebElement personalAreaButton; //элемент главной страницы, кнопка "Личный кабинет"
     @FindBy(xpath = "//div[@class='uoBndM']//img")
     private WebElement logoButton;

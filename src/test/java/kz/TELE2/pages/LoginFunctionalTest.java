@@ -6,9 +6,10 @@ import org.junit.*;
 public class LoginFunctionalTest extends Base {
     //Позитивные тесты
     @Test
-    public void loginTestPositiveOk47() {
+    public void loginTestPositiveOk47() throws InterruptedException {
         anyPage
                 .clickPersonalAreaButton();
+        Thread.sleep(1000);
         loginPage
                 .inputPhoneNumberField("7076421247")
                 .inputPasswordField("1234")
@@ -16,6 +17,7 @@ public class LoginFunctionalTest extends Base {
         String phoneUser = phoneBoxPage.getUserPhoneNumber();
         Assert.assertEquals("7076421247", phoneUser);
         phoneBoxPage.userLogout();
+        anyPage.clickLogoButton();
         System.out.println("TEST loginTestPositive47: Pass");
     }
 
@@ -30,6 +32,7 @@ public class LoginFunctionalTest extends Base {
         String phoneUser = phoneBoxPage.getUserPhoneNumber1();
         Assert.assertEquals("7076421248", phoneUser);
         phoneBoxPage.userLogout();
+        anyPage.clickLogoButton();
         System.out.println("TEST loginTestPositive48: Pass");
     }
 
@@ -77,6 +80,7 @@ public class LoginFunctionalTest extends Base {
         } catch (Throwable error) {
             System.out.println("TEST disableLoginButton: Failed");
         }
+        anyPage.clickLogoButton();
     }
 
     @Test
@@ -115,6 +119,7 @@ public class LoginFunctionalTest extends Base {
         //Проверка текстовки лицензии на главной странце странице (футер)
         String licenseTele2 = anyPage.getLicenseTELE2();
         Assert.assertEquals("2018 © Tele2 Лицензия АБА № 000950 выдана АИС РК", licenseTele2);
+        anyPage.clickLogoButton();
         System.out.println("TEST validLicense: Pass");
     }
 
@@ -126,6 +131,7 @@ public class LoginFunctionalTest extends Base {
         Assert.assertEquals("Меняй все", text);
         String licenseTele2 = anyPage.getLicenseTELE2();
         Assert.assertEquals("2018 © Tele2 Лицензия АБА № 000950 выдана АИС РК", licenseTele2);
+        anyPage.clickLogoButton();
         System.out.println("TEST сorrectGoToTheLinkTariff: Pass");
     }
 
@@ -137,6 +143,7 @@ public class LoginFunctionalTest extends Base {
         Assert.assertEquals("Услуги Tele2", text);
         String licenseTele2 = anyPage.getLicenseTELE2();
         Assert.assertEquals("2018 © Tele2 Лицензия АБА № 000950 выдана АИС РК", licenseTele2);
+        anyPage.clickLogoButton();
         System.out.println("TEST correctGotoTheLinkServices: Pass");
     }
 
@@ -148,6 +155,7 @@ public class LoginFunctionalTest extends Base {
         Assert.assertEquals("Роуминг", text);
         String licenseTele2 = anyPage.getLicenseTELE2();
         Assert.assertEquals("2018 © Tele2 Лицензия АБА № 000950 выдана АИС РК", licenseTele2);
+        anyPage.clickLogoButton();
         System.out.println("TEST correctGotoTheLinkRoaming: Pass");
     }
 
@@ -160,6 +168,7 @@ public class LoginFunctionalTest extends Base {
         Assert.assertEquals("Меняй все", text);
         String licenseTele2 = anyPage.getLicenseTELE2();
         Assert.assertEquals("2018 © Tele2 Лицензия АБА № 000950 выдана АИС РК", licenseTele2);
+        anyPage.clickLogoButton();
         System.out.println("TEST сorrectGoToTheLinkTariff: Pass");
     }
 
@@ -171,6 +180,7 @@ public class LoginFunctionalTest extends Base {
         Assert.assertEquals("Услуги Tele2", text);
         String licenseTele2 = anyPage.getLicenseTELE2();
         Assert.assertEquals("2018 © Tele2 Лицензия АБА № 000950 выдана АИС РК", licenseTele2);
+        anyPage.clickLogoButton();
         System.out.println("TEST correctGotoTheLinkServices: Pass");
     }
 
@@ -182,6 +192,7 @@ public class LoginFunctionalTest extends Base {
         Assert.assertEquals("Роуминг", text);
         String licenseTele2 = anyPage.getLicenseTELE2();
         Assert.assertEquals("2018 © Tele2 Лицензия АБА № 000950 выдана АИС РК", licenseTele2);
+        anyPage.clickLogoButton();
         System.out.println("TEST correctGotoTheLinkRoaming: Pass");
     }
 
@@ -204,6 +215,7 @@ public class LoginFunctionalTest extends Base {
         String alert1 = tabRoamingPage.getDrop_downListOfCountriesDostupRoaming(4);
         Assert.assertEquals("Армения", alert1);
         phoneBoxPage.userLogout();
+        anyPage.clickLogoButton();
         System.out.println("TEST checkForCorrectCountries: Pass");
     }
 }

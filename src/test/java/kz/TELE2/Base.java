@@ -73,7 +73,6 @@ public class Base {
         System.setProperty("webdriver.chrome.driver", "/Users/i.levchenko/Desktop/chromedriver");
         driver = new EventFiringWebDriver(new ChromeDriver());
         driver.register(new MyListener()); //для протокола// завернуть проинициализированый драйвер внутрь EventFiringWebDriver и зарегистрировать там этот наблюдатель*/
-
         anyPage = new AnyPage(driver);
         loginPage = new LoginPage(driver);
         phoneBoxPage = new PhoneBoxPage(driver);
@@ -84,7 +83,7 @@ public class Base {
         roamingPage = new RoamingPage(driver);
         servicesPage = new ServicesPage(driver);
         tabRoamingPage = new TabRoamingPage(driver);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.MINUTES);
         driver.get("https://tele2.ngr/");
     }
 
