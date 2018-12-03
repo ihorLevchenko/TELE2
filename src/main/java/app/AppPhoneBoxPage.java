@@ -3,9 +3,9 @@ package app;
 import kz.TELE2.pages.PhoneBoxPage;
 
 public interface AppPhoneBoxPage {
-    String getUserPhoneNumber();
+    String getUserPhoneNumber47();
 
-    String getUserPhoneNumber1();
+    String getUserPhoneNumber48();
 
     PhoneBoxPage userLogout();
 }

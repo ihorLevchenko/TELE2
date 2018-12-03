@@ -9,12 +9,11 @@ public class LoginFunctionalTest extends Base {
     public void loginTestPositiveOk47() throws InterruptedException {
         anyPage
                 .clickPersonalAreaButton();
-        Thread.sleep(1000);
         loginPage
                 .inputPhoneNumberField("7076421247")
                 .inputPasswordField("1234")
                 .clickLoginButton();
-        String phoneUser = phoneBoxPage.getUserPhoneNumber();
+        String phoneUser = phoneBoxPage.getUserPhoneNumber47();
         Assert.assertEquals("7076421247", phoneUser);
         phoneBoxPage.userLogout();
         anyPage.clickLogoButton();
@@ -29,7 +28,7 @@ public class LoginFunctionalTest extends Base {
                 .inputPhoneNumberField("7076421248")
                 .inputPasswordField("1234")
                 .clickLoginButton();
-        String phoneUser = phoneBoxPage.getUserPhoneNumber1();
+        String phoneUser = phoneBoxPage.getUserPhoneNumber48();
         Assert.assertEquals("7076421248", phoneUser);
         phoneBoxPage.userLogout();
         anyPage.clickLogoButton();
@@ -57,7 +56,7 @@ public class LoginFunctionalTest extends Base {
         anyPage
                 .clickPersonalAreaButton();
         loginPage.inputPhoneNumberField("7076421243")
-                .inputPasswordField("3333")//wrong pass
+                .inputPasswordField("33333")//wrong pass
                 .clickLoginButton();
         String alert = loginPage.wrongPhoneNumberOrPass();
         Assert.assertEquals("Неверный телефон или пароль", alert);
@@ -111,111 +110,5 @@ public class LoginFunctionalTest extends Base {
         Assert.assertEquals("Поле не должно быть пустым", emptyFieldPhoneNumber);
         anyPage.clickLogoButton();
         System.out.println("TEST theFieldMustNotBeEmpty: Pass");
-    }
-
-    //переход с верхних кнопок
-    @Test
-    public void validLicenseOnHomePage() {
-        //Проверка текстовки лицензии на главной странце странице (футер)
-        String licenseTele2 = anyPage.getLicenseTELE2();
-        Assert.assertEquals("2018 © Tele2 Лицензия АБА № 000950 выдана АИС РК", licenseTele2);
-        anyPage.clickLogoButton();
-        System.out.println("TEST validLicense: Pass");
-    }
-
-    @Test
-    //переход на страницу тарифов + проверка главной текстовки + проверка лицензии
-    public void сorrectGoToTheLinkTariff() {
-        anyPage.clickTariffs();
-        String text = tariffsPage.textChangeEverything();
-        Assert.assertEquals("Меняй все", text);
-        String licenseTele2 = anyPage.getLicenseTELE2();
-        Assert.assertEquals("2018 © Tele2 Лицензия АБА № 000950 выдана АИС РК", licenseTele2);
-        anyPage.clickLogoButton();
-        System.out.println("TEST сorrectGoToTheLinkTariff: Pass");
-    }
-
-    @Test
-    //переход на страницу Услуги + проверка главной текстовки
-    public void correctGotoTheLinkServices() {
-        anyPage.clickServices();
-        String text = servicesPage.textServicesTELE2();
-        Assert.assertEquals("Услуги Tele2", text);
-        String licenseTele2 = anyPage.getLicenseTELE2();
-        Assert.assertEquals("2018 © Tele2 Лицензия АБА № 000950 выдана АИС РК", licenseTele2);
-        anyPage.clickLogoButton();
-        System.out.println("TEST correctGotoTheLinkServices: Pass");
-    }
-
-    @Test
-    public void correctGotoTheLinkRoaming() {
-        //переход на страницу роуминга + проверка главной текстовки
-        anyPage.clickRoaming();
-        String text = roamingPage.textRoaming();
-        Assert.assertEquals("Роуминг", text);
-        String licenseTele2 = anyPage.getLicenseTELE2();
-        Assert.assertEquals("2018 © Tele2 Лицензия АБА № 000950 выдана АИС РК", licenseTele2);
-        anyPage.clickLogoButton();
-        System.out.println("TEST correctGotoTheLinkRoaming: Pass");
-    }
-
-    //переход с нижних кнопок
-    @Test
-    //переход на страницу тарифов с нижних кнопок + проверка главной текстовки
-    public void сorrectGoToTheLinkTariffDown() {
-        anyPage.clickTariffPlansDown();
-        String text = tariffsPage.textChangeEverything();
-        Assert.assertEquals("Меняй все", text);
-        String licenseTele2 = anyPage.getLicenseTELE2();
-        Assert.assertEquals("2018 © Tele2 Лицензия АБА № 000950 выдана АИС РК", licenseTele2);
-        anyPage.clickLogoButton();
-        System.out.println("TEST сorrectGoToTheLinkTariff: Pass");
-    }
-
-    @Test
-    //переход на страницу Услуги с нижних кнопок + проверка главной текстовки
-    public void correctGotoTheLinkServicesDown() {
-        anyPage.clickServicesDown();
-        String text = servicesPage.textServicesTELE2();
-        Assert.assertEquals("Услуги Tele2", text);
-        String licenseTele2 = anyPage.getLicenseTELE2();
-        Assert.assertEquals("2018 © Tele2 Лицензия АБА № 000950 выдана АИС РК", licenseTele2);
-        anyPage.clickLogoButton();
-        System.out.println("TEST correctGotoTheLinkServices: Pass");
-    }
-
-    @Test
-    public void correctGotoTheLinkRoamingDown() {
-        //переход на страницу роуминга + проверка главной текстовки
-        anyPage.clickRoamingDown();
-        String text = roamingPage.textRoaming();
-        Assert.assertEquals("Роуминг", text);
-        String licenseTele2 = anyPage.getLicenseTELE2();
-        Assert.assertEquals("2018 © Tele2 Лицензия АБА № 000950 выдана АИС РК", licenseTele2);
-        anyPage.clickLogoButton();
-        System.out.println("TEST correctGotoTheLinkRoaming: Pass");
-    }
-
-    @Test
-    public void checkForCorrectCountries() {
-        anyPage
-                .clickPersonalAreaButton();
-        loginPage
-                .inputPhoneNumberField("7076421247")
-                .inputPasswordField("1234")
-                .clickLoginButton();
-        String phoneUser = phoneBoxPage.getUserPhoneNumber();
-        Assert.assertEquals("7076421247", phoneUser);
-        phoneBoxPage
-                .clickProfileLink()
-                .clickProfileTabLink("Роуминг");
-        tabRoamingPage.clickBlockInternetPackagesAndServicesInRoaming("1");
-        String alert = tabRoamingPage.getDrop_downListOfCountriesDostupRoaming(1);
-        Assert.assertEquals("Азербайджан", alert);
-        String alert1 = tabRoamingPage.getDrop_downListOfCountriesDostupRoaming(4);
-        Assert.assertEquals("Армения", alert1);
-        phoneBoxPage.userLogout();
-        anyPage.clickLogoButton();
-        System.out.println("TEST checkForCorrectCountries: Pass");
     }
 }

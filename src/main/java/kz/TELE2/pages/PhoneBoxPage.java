@@ -24,7 +24,7 @@ public class PhoneBoxPage implements AppPhoneBoxPage {
     @FindBy(xpath = "//span[text()='7076421248']")
     private WebElement userPhoneNumber7076421248;
 
-    @FindBy(xpath = "//span[contains(text(), 'Выйти')]")
+    @FindBy(xpath = "//span[@class='_1pA6RH']")
     private WebElement logoutButton;
 
     @FindBy(xpath = "//a[contains(text(),'Тест/КД/Махонина Ольга')]")
@@ -37,13 +37,13 @@ public class PhoneBoxPage implements AppPhoneBoxPage {
     }
 
     @Override
-    public String getUserPhoneNumber(){
+    public String getUserPhoneNumber47() {
         String userPhone = userPhoneNumber7076421247.getText();
         return userPhoneNumber7076421247.getText();
     }
 
     @Override
-    public String getUserPhoneNumber1(){
+    public String getUserPhoneNumber48() {
         String userPhone = userPhoneNumber7076421248.getText();
         return userPhoneNumber7076421248.getText();
     }

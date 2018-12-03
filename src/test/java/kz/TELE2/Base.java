@@ -83,8 +83,8 @@ public class Base {
         roamingPage = new RoamingPage(driver);
         servicesPage = new ServicesPage(driver);
         tabRoamingPage = new TabRoamingPage(driver);
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.MINUTES);
-        driver.get("https://tele2.ngr/");
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
+        driver.get("https://tele2.ngr");
     }
 
     @AfterClass

@@ -1,4 +1,8 @@
-package kz.TELE2.pages;
+package kz.TELE2;
+
+import org.junit.Ignore;
+
+@Ignore
 
 public class RegistrationPage  {
 
