@@ -12,11 +12,11 @@ repositories {
     mavenCentral()
 }
 
-test {
-    useJUnitPlatform()
-
-    filter {
-        exclude 'file:///C:/Program%20Files%20(x86)/Jenkins/workspace/Tele2/build/reports/tests/test/index.html'
+tasks.withType(Test) {
+    testLogging {
+        exceptionFormat "full"
+        events "started", "skipped", "passed", "failed"
+        showStandardStreams true
     }
 }
 
