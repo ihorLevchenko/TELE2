@@ -12,14 +12,6 @@ repositories {
     mavenCentral()
 }
 
-tasks.withType(Test) {
-    testLogging {
-        exceptionFormat "full"
-        events "started", "skipped", "passed", "failed"
-        showStandardStreams true
-    }
-}
-
 dependencies {
     // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
