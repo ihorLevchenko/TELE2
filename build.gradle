@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    
 }
 
 group 'TELE2'
@@ -15,7 +16,7 @@ test {
     useJUnitPlatform()
 
     filter {
-        exclude '**/module-info.class'
+        exclude 'file:///C:/Program%20Files%20(x86)/Jenkins/workspace/Tele2/build/reports/tests/test/index.html'
     }
 }
 
