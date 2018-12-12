@@ -29,6 +29,8 @@ public class AnyPage implements AppAnyPage {
     private WebElement services;
     @FindBy(xpath = "//li[@class='_1g9a1Y']//a[@class='_1TUp3t _1FF0US'][contains(text(),'Роуминг')]")
     private WebElement roaming;
+    @FindBy(xpath = "//a[@class='_1TUp3t _1FF0US'][contains(text(),'Перенос номера')]")
+    private WebElement numberPortingPage;
 
 
     //Нижний блок кнопок
@@ -63,6 +65,11 @@ public class AnyPage implements AppAnyPage {
     @Override
     public AnyPage clickPersonalAreaButton() {
         personalAreaButton.click();
+        return new AnyPage(driver);
+    }
+
+    public AnyPage clickNumberPortingPage() {
+        numberPortingPage.click();
         return new AnyPage(driver);
     }
 

@@ -11,6 +11,7 @@ import kz.TELE2.pages.tarifs.detalisOfTheTariff.DetailsOfTheTariffPage1390;
 import kz.TELE2.pages.tarifs.detalisOfTheTariff.DetailsOfTheTariffPage1790;
 import kz.TELE2.pages.tarifs.detalisOfTheTariff.DetailsOfTheTariffPage2590;
 import menuProfile.TabRoamingPage;
+import numberPortingPage.NumberPortingPage;
 import org.openqa.selenium.*;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -34,6 +35,7 @@ public class Base {
     public static RoamingPage roamingPage;
     public static ServicesPage servicesPage;
     public static TabRoamingPage tabRoamingPage;
+    public static NumberPortingPage numberPortingPage;
 
 
     //протоколирование
@@ -83,8 +85,9 @@ public class Base {
         roamingPage = new RoamingPage(driver);
         servicesPage = new ServicesPage(driver);
         tabRoamingPage = new TabRoamingPage(driver);
+        numberPortingPage = new NumberPortingPage(driver);
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
-        driver.get("https://tele2.kz:3443/");
+        driver.get("https://tele2.ngr");
     }
 
     @AfterClass
