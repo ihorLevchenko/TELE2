@@ -64,6 +64,11 @@ public class AnyPage implements AppAnyPage {
 
     @Override
     public AnyPage clickPersonalAreaButton() {
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         personalAreaButton.click();
         return new AnyPage(driver);
     }
