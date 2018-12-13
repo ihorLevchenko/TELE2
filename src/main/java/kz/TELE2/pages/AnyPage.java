@@ -65,7 +65,7 @@ public class AnyPage implements AppAnyPage {
     @Override
     public AnyPage clickPersonalAreaButton() {
         try {
-            Thread.sleep(4000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
