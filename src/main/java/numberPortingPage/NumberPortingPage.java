@@ -1,9 +1,6 @@
 package numberPortingPage;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -15,6 +12,7 @@ public class NumberPortingPage {
         this.driver = driver;
     }
 
+    //форма "Заявка на перенос номера"
     @FindBy(xpath = "//h2[text()='Перенос номера']")
     private WebElement textNumberPorting;
     @FindBy(xpath = "//div[@class='_2iinAU']//*[@class='_2Hhuqe']")
@@ -35,9 +33,167 @@ public class NumberPortingPage {
     private WebElement email;
     @FindBy(xpath = "//input[@value='rulesAgreement']")
     private WebElement checkbox;
-    @FindBy(xpath = "//button[@class='_1d2SRC _3GoWgo _1aMikQ' and text()='Отправить заявку']")
-    private WebElement appButton;
+    @FindBy(xpath = "//button[contains(text(),'Отправить заявку')]")
+    private WebElement saidButton;
+    @FindBy(xpath = "//div[@class='_1rXTfI PrqN70']")
+    private WebElement closeAlert;
 
+    //
+    @FindBy(xpath = "//div[@class='_2JSVnc']")
+    private WebElement forma;
+
+    //ошибки формы "переноса номера"
+    @FindBy(xpath = "//p[@class='PynFgb' and text()='Поле не должно быть пустым']")
+    private WebElement the_field_must_not_be_empty;
+    @FindBy(xpath = "//p[@class='PynFgb' and text()='Номер телефона введен не корректно']")
+    private WebElement the_phone_number_entered_is_not_correct;
+    @FindBy(xpath = "//p[@class='PynFgb' and text()='Введите корректный email']")
+    private WebElement enter_a_valid_email_address;
+
+    //методы для ошибок
+    public String errorFieldMustNotBeEmpty() {
+        String alert = the_field_must_not_be_empty.getText();
+        return alert;
+    }
+
+    public String errorPhoneNumberEnteredIsNotCorrect() {
+        String alert = the_phone_number_entered_is_not_correct.getText();
+        return alert;
+    }
+
+    public String errorEnterValidEmailAdress() {
+        String alert = enter_a_valid_email_address.getText();
+        return alert;
+    }
+
+
+    //методы для очистки полей
+    public NumberPortingPage clearallPhoneNumberField() {
+        phoneNumber.sendKeys(Keys.BACK_SPACE);
+        phoneNumber.sendKeys(Keys.BACK_SPACE);
+        phoneNumber.sendKeys(Keys.BACK_SPACE);
+        phoneNumber.sendKeys(Keys.BACK_SPACE);
+        phoneNumber.sendKeys(Keys.BACK_SPACE);
+        phoneNumber.sendKeys(Keys.BACK_SPACE);
+        phoneNumber.sendKeys(Keys.BACK_SPACE);
+        return new NumberPortingPage(driver);
+    }
+
+    public NumberPortingPage clearOnePhoneNumberField() {
+        phoneNumber.sendKeys(Keys.BACK_SPACE);
+        return new NumberPortingPage(driver);
+    }
+
+    public NumberPortingPage clearAllFirstNameField() {
+        firstName.sendKeys(Keys.BACK_SPACE);
+        firstName.sendKeys(Keys.BACK_SPACE);
+        firstName.sendKeys(Keys.BACK_SPACE);
+        firstName.sendKeys(Keys.BACK_SPACE);
+        firstName.sendKeys(Keys.BACK_SPACE);
+        firstName.sendKeys(Keys.BACK_SPACE);
+        firstName.sendKeys(Keys.BACK_SPACE);
+        firstName.sendKeys(Keys.BACK_SPACE);
+        firstName.sendKeys(Keys.BACK_SPACE);
+        firstName.sendKeys(Keys.BACK_SPACE);
+        firstName.sendKeys(Keys.BACK_SPACE);
+        firstName.sendKeys(Keys.BACK_SPACE);
+        firstName.sendKeys(Keys.BACK_SPACE);
+        firstName.sendKeys(Keys.BACK_SPACE);
+        firstName.sendKeys(Keys.BACK_SPACE);
+        firstName.sendKeys(Keys.BACK_SPACE);
+        firstName.sendKeys(Keys.BACK_SPACE);
+        return new NumberPortingPage(driver);
+    }
+
+    public NumberPortingPage clearAllLastNameField() {
+        lastname.sendKeys(Keys.BACK_SPACE);
+        lastname.sendKeys(Keys.BACK_SPACE);
+        lastname.sendKeys(Keys.BACK_SPACE);
+        lastname.sendKeys(Keys.BACK_SPACE);
+        lastname.sendKeys(Keys.BACK_SPACE);
+        lastname.sendKeys(Keys.BACK_SPACE);
+        lastname.sendKeys(Keys.BACK_SPACE);
+        lastname.sendKeys(Keys.BACK_SPACE);
+        lastname.sendKeys(Keys.BACK_SPACE);
+        lastname.sendKeys(Keys.BACK_SPACE);
+        lastname.sendKeys(Keys.BACK_SPACE);
+        lastname.sendKeys(Keys.BACK_SPACE);
+        lastname.sendKeys(Keys.BACK_SPACE);
+        lastname.sendKeys(Keys.BACK_SPACE);
+        lastname.sendKeys(Keys.BACK_SPACE);
+        lastname.sendKeys(Keys.BACK_SPACE);
+        lastname.sendKeys(Keys.BACK_SPACE);
+        return new NumberPortingPage(driver);
+    }
+
+    public NumberPortingPage clearAllEmailField() {
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        email.sendKeys(Keys.BACK_SPACE);
+        return new NumberPortingPage(driver);
+    }
+
+    public NumberPortingPage clearOneEmailField() {
+        email.sendKeys(Keys.BACK_SPACE);
+        return new NumberPortingPage(driver);
+    }
+
+    //метод для скрола страницы к заполнению формы переноса формы
+    public NumberPortingPage scrollOnFormNumberPorting() {
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("window.scrollBy(0,950)", "");
+        return new NumberPortingPage(driver);
+    }
+
+    // методы для логики
     public void choiceBlockOperatorCodePhoneNumber(String numberOperatorCode) {
         String listXpath = String.format("//div[@class='_1jFVk4 _1_JAuT OP0RzE _2IqpR7']//div[@class='_1jLcgi']//span[%s]", numberOperatorCode);
         driver.findElement(By.xpath(listXpath)).click();
@@ -88,7 +244,7 @@ public class NumberPortingPage {
         return new NumberPortingPage(driver);
     }
 
-    public NumberPortingPage inputemail(String emailIn) {
+    public NumberPortingPage inputEmail(String emailIn) {
         email.sendKeys(emailIn);
         return new NumberPortingPage(driver);
     }
@@ -98,13 +254,32 @@ public class NumberPortingPage {
         return new NumberPortingPage(driver);
     }
 
+    public NumberPortingPage clickSaidButton() {
+        saidButton.click();
+        return new NumberPortingPage(driver);
+    }
+
+    public NumberPortingPage clickCloseAlert() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        closeAlert.click();
+        return new NumberPortingPage(driver);
+    }
+
+    public String formOnPortingPage() {
+        String alert = forma.getText();
+        return alert;
+    }
+
     public boolean selectCheckBox() {
         if (!checkbox.isSelected()) {
             checkbox.click();
-            System.out.println("TEST TRUE");
             return true;
-        } else {
-            return false;
-        }
+        } else
+            System.out.println("Check already check");
+        return false;
     }
 }

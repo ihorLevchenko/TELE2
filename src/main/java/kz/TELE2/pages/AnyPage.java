@@ -29,7 +29,7 @@ public class AnyPage implements AppAnyPage {
     private WebElement services;
     @FindBy(xpath = "//li[@class='_1g9a1Y']//a[@class='_1TUp3t _1FF0US'][contains(text(),'Роуминг')]")
     private WebElement roaming;
-    @FindBy(xpath = "//a[@class='_1TUp3t _1FF0US'][contains(text(),'Перенос номера')]")
+    @FindBy(xpath = "//nav[contains(@class,'_34bLRy')]//li[4]")
     private WebElement numberPortingPage;
 
 
@@ -69,6 +69,11 @@ public class AnyPage implements AppAnyPage {
     }
 
     public AnyPage clickNumberPortingPage() {
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         numberPortingPage.click();
         return new AnyPage(driver);
     }

@@ -6,7 +6,7 @@ import org.junit.*;
 public class LoginFunctionalTest extends Base {
     //Позитивные тесты
     @Test
-    public void loginTestPositiveOk47() throws InterruptedException {
+    public void loginTestPositiveOk47() {
         anyPage
                 .clickPersonalAreaButton();
         loginPage
