@@ -24,7 +24,7 @@ public class NumberPortingPageTest extends Base {
         numberPortingPage
                 .inputFirstName("Alex")
                 .inputLastname("Cross")
-                .inputMiddleName("Vasilievich")
+                .inputMiddleName("Franckovich")
                 .inputContactPhone("0634447777")
                 .inputEmail("ii@ll.com")
                 .selectCheckBox();
