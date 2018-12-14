@@ -48,6 +48,7 @@ public class LoginFunctionalTest extends Base {
         String alert = loginPage.wrongPhoneNumberOrPass();
         Assert.assertEquals("Неверный телефон или пароль", alert);
         anyPage.clickLogoButton();
+        System.out.println("TEST wrongPhoneNumber: Pass");
     }
 
     @Test
@@ -61,6 +62,7 @@ public class LoginFunctionalTest extends Base {
         String alert = loginPage.wrongPhoneNumberOrPass();
         Assert.assertEquals("Неверный телефон или пароль", alert);
         anyPage.clickLogoButton();
+        System.out.println("TEST wrongPassword: Pass");
     }
 
     @Test
