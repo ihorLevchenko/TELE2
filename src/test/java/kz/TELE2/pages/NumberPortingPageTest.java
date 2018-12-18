@@ -20,6 +20,7 @@ public class NumberPortingPageTest extends Base {
                 .clickDefintionButton();
         String text = numberPortingPage.errorDefintionPhoneNumber();
         Assert.assertEquals("Ваш оператор Altel", text);
+        System.out.println("TEST yourOperatorAltel: Pass");
     }
 
     @Test
@@ -35,6 +36,7 @@ public class NumberPortingPageTest extends Base {
                 .clickDefintionButton();
         String text = numberPortingPage.errorDefintionPhoneNumber();
         Assert.assertEquals("Не удалось найти информацию по данному номеру", text);
+        System.out.println("TEST alert_Unable_to_find_information_on_this_number: Pass");
     }
 
     @Test
@@ -50,6 +52,7 @@ public class NumberPortingPageTest extends Base {
                 .clickDefintionButton();
         String text = numberPortingPage.errorDefintionPhoneNumber();
         Assert.assertEquals("Ваш оператор Tele2", text);
+        System.out.println("TEST yourOperatorTele2: Pass");
     }
 
     @Test
