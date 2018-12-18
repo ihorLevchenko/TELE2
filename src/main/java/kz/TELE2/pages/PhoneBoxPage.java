@@ -50,6 +50,11 @@ public class PhoneBoxPage implements AppPhoneBoxPage {
 
     @Override
     public PhoneBoxPage userLogout() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         logoutButton.click();
         return new PhoneBoxPage(driver);
     }

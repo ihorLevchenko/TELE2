@@ -72,7 +72,7 @@ public class Base {
     // Он будет выполняться один раз перед запуском кода класса:
     @BeforeClass
     public static void setup() {
-        System.setProperty("webdriver.chrome.driver", "/Users/i.levchenko/Desktop/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Levchenko\\Desktop\\chromedriver.exe");
         driver = new EventFiringWebDriver(new ChromeDriver());
         driver.register(new MyListener()); //для протокола// завернуть проинициализированый драйвер внутрь EventFiringWebDriver и зарегистрировать там этот наблюдатель*/
         anyPage = new AnyPage(driver);
@@ -87,6 +87,7 @@ public class Base {
         tabRoamingPage = new TabRoamingPage(driver);
         numberPortingPage = new NumberPortingPage(driver);
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
         driver.get("https://tele2.kz:3443/");
     }
 
