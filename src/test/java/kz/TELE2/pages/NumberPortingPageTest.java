@@ -8,6 +8,51 @@ import org.openqa.selenium.JavascriptExecutor;
 public class NumberPortingPageTest extends Base {
 
     @Test
+    //определение оператора по номеру
+    public void yourOperatorAltel() {
+        anyPage.clickNumberPortingPage();
+        String textPage = numberPortingPage.textNumberPorting();
+        Assert.assertEquals("Перенос номера", textPage);
+        numberPortingPage
+                .clickButtonBlockDefintionOperatorCodeNumber()
+                .choiseBlockOperatorDefintionCodePhoneNumber("1")
+                .inputDefintionPhoneNumberField("1231231")
+                .clickDefintionButton();
+        String text = numberPortingPage.errorDefintionPhoneNumber();
+        Assert.assertEquals("Ваш оператор Altel", text);
+    }
+
+    @Test
+    //определение оператора по номеру
+    public void alert_Unable_to_find_information_on_this_number() {
+        anyPage.clickNumberPortingPage();
+        String textPage = numberPortingPage.textNumberPorting();
+        Assert.assertEquals("Перенос номера", textPage);
+        numberPortingPage
+                .clickButtonBlockDefintionOperatorCodeNumber()
+                .choiseBlockOperatorDefintionCodePhoneNumber("2")
+                .inputDefintionPhoneNumberField("1231231")
+                .clickDefintionButton();
+        String text = numberPortingPage.errorDefintionPhoneNumber();
+        Assert.assertEquals("Не удалось найти информацию по данному номеру", text);
+    }
+
+    @Test
+    //определение оператора по номеру
+    public void yourOperatorTele2() {
+        anyPage.clickNumberPortingPage();
+        String textPage = numberPortingPage.textNumberPorting();
+        Assert.assertEquals("Перенос номера", textPage);
+        numberPortingPage
+                .clickButtonBlockDefintionOperatorCodeNumber()
+                .choiseBlockOperatorDefintionCodePhoneNumber("5")
+                .inputDefintionPhoneNumberField("1231231")
+                .clickDefintionButton();
+        String text = numberPortingPage.errorDefintionPhoneNumber();
+        Assert.assertEquals("Ваш оператор Tele2", text);
+    }
+
+    @Test
     //Предварительная заявка на перенос номера успешно принята (Позитивный тест)
     public void applicationAcceptedPositive() {
         anyPage.clickNumberPortingPage();

@@ -12,6 +12,17 @@ public class NumberPortingPage {
         this.driver = driver;
     }
 
+    //форма определения оператора по номеру
+    @FindBy(xpath = "//div[@class='_1jFVk4 OP0RzE']//*[@class='_2Hhuqe']")
+    private WebElement defintionBlockPhoneNumber;
+    @FindBy(xpath = "//div[@class='zgdVwM phoneInput']//input[@placeholder='000 00 00']")
+    private WebElement phoneNumberField;
+    @FindBy(xpath = "//button[contains(text(),'Проверить')]")
+    private WebElement checkButton;
+    //ошибки формы определения номера
+    @FindBy(xpath = "//span[@class='_1Te6wA' and text()]")
+    private WebElement alertDefintionPhoneNumber;
+
     //форма "Заявка на перенос номера"
     @FindBy(xpath = "//h2[text()='Перенос номера']")
     private WebElement textNumberPorting;
@@ -51,6 +62,11 @@ public class NumberPortingPage {
     private WebElement enter_a_valid_email_address;
 
     //методы для ошибок
+    public String errorDefintionPhoneNumber() {
+        String alert = alertDefintionPhoneNumber.getText();
+        return alert;
+    }
+
     public String errorFieldMustNotBeEmpty() {
         String alert = the_field_must_not_be_empty.getText();
         return alert;
@@ -68,6 +84,17 @@ public class NumberPortingPage {
 
 
     //методы для очистки полей
+    public NumberPortingPage clearAllDefintionPhNmField() {
+        phoneNumberField.sendKeys(Keys.BACK_SPACE);
+        phoneNumberField.sendKeys(Keys.BACK_SPACE);
+        phoneNumberField.sendKeys(Keys.BACK_SPACE);
+        phoneNumberField.sendKeys(Keys.BACK_SPACE);
+        phoneNumberField.sendKeys(Keys.BACK_SPACE);
+        phoneNumberField.sendKeys(Keys.BACK_SPACE);
+        phoneNumberField.sendKeys(Keys.BACK_SPACE);
+        return new NumberPortingPage(driver);
+    }
+
     public NumberPortingPage clearallPhoneNumberField() {
         phoneNumber.sendKeys(Keys.BACK_SPACE);
         phoneNumber.sendKeys(Keys.BACK_SPACE);
@@ -194,6 +221,27 @@ public class NumberPortingPage {
     }
 
     // методы для логики
+    public NumberPortingPage choiseBlockOperatorDefintionCodePhoneNumber(String numberCodeOperator) {
+        String listXpath = String.format("//div[@class='_1jFVk4 OP0RzE _2IqpR7']//div[@class='_1jLcgi']//span[%s]", numberCodeOperator);
+        driver.findElement(By.xpath(listXpath)).click();
+        return new NumberPortingPage(driver);
+    }
+
+    public NumberPortingPage clickButtonBlockDefintionOperatorCodeNumber() {
+        defintionBlockPhoneNumber.click();
+        return new NumberPortingPage(driver);
+    }
+
+    public NumberPortingPage inputDefintionPhoneNumberField(String inputPhoneNumber) {
+        phoneNumberField.sendKeys(inputPhoneNumber);
+        return new NumberPortingPage(driver);
+    }
+
+    public NumberPortingPage clickDefintionButton() {
+        checkButton.click();
+        return new NumberPortingPage(driver);
+    }
+
     public void choiceBlockOperatorCodePhoneNumber(String numberOperatorCode) {
         String listXpath = String.format("//div[@class='_1jFVk4 _1_JAuT OP0RzE _2IqpR7']//div[@class='_1jLcgi']//span[%s]", numberOperatorCode);
         driver.findElement(By.xpath(listXpath)).click();
