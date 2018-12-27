@@ -73,11 +73,19 @@ public class LoginFunctionalTest extends Base {
                 .inputPasswordField("111")
                 .isDisableButton();
 
-        if (loginPage.isDisableButton())
-            System.out.println("TEST disableLoginButton: Pass");
-        else {
-            Assert.assertEquals("1", "");
-        }
+        //1-й вариант, мы ожидаем булевское значение тру, которое переводим в стрингу, если фолс тогда тест упадет
+        Assert.assertEquals(Boolean.toString(loginPage.isDisableButton()), "true");
+        //
+
+        //2-й вариант
+//        Assert.assertTrue(loginPage.isDisableButton());
+
+//        if (loginPage.isDisableButton())
+//            System.out.println("TEST disableLoginButton: Pass");
+//        else if (!loginPage.isDisableButton()) {
+//
+//
+//        }
     }
 
     @Test
