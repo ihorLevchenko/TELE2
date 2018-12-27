@@ -87,7 +87,7 @@ public class Base {
         tabRoamingPage = new TabRoamingPage(driver);
         numberPortingPage = new NumberPortingPage(driver);
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.get("https://tele2.kz:3443/");
+        driver.get("https://tele2.kz/");
     }
 
     @AfterClass

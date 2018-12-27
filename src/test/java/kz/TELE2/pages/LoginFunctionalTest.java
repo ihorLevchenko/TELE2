@@ -66,22 +66,18 @@ public class LoginFunctionalTest extends Base {
     }
 
     @Test
-    //Тест на активность кнопки "Войти", на экране входа в личный кабинет
+    //Тест на неактивную кнопку "Войти", на экране входа в личный кабинет (кнопка должна быть в неактивном состоянии)
     public void disableLoginButton() {
         anyPage.clickPersonalAreaButton();
         loginPage.inputPhoneNumberField("7076421243")
-                .inputPasswordField("")
+                .inputPasswordField("111")
                 .isDisableButton();
-        try {
-            if (loginPage.isDisableButton())
-                System.out.println("TEST disableLoginButton: Pass");
-            else {
-                throw new Throwable();
-            }
-        } catch (Throwable error) {
-            System.out.println("TEST disableLoginButton: Failed");
+
+        if (loginPage.isDisableButton())
+            System.out.println("TEST disableLoginButton: Pass");
+        else {
+            Assert.assertEquals("1", "");
         }
-        anyPage.clickLogoButton();
     }
 
     @Test
