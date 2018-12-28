@@ -75,6 +75,7 @@ public class LoginFunctionalTest extends Base {
 
         //1-й вариант, мы ожидаем булевское значение тру, которое переводим в стрингу, если фолс тогда тест упадет
         Assert.assertEquals(Boolean.toString(loginPage.isDisableButton()), "true");
+        System.out.println("TEST disableLoginButton: Pass");
         //
 
         //2-й вариант
